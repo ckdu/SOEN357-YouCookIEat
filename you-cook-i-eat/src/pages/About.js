@@ -34,7 +34,7 @@ function About() {
     <Box sx={{ flexGrow: 1, my: 4, bgcolor: theme.palette.background.default }}>
       <animated.div style={contentProps}>
         <Typography variant="h4" component="h1" gutterBottom color="primary">
-          About You Cook I Eat
+          About Us
         </Typography>
         <Paper elevation={3} sx={{ p: 3, mb: 2, bgcolor: theme.palette.grey[200] }}>
           <Typography variant="h6" gutterBottom>

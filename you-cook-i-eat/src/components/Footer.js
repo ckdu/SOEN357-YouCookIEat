@@ -8,7 +8,7 @@ function Footer() {
     <Box
       component="footer"
       sx={{
-        py: 6,
+        py: { xs: 8, sm: 10 },
         px: 2,
         mt: 8,
         bgcolor: theme.palette.primary.light,

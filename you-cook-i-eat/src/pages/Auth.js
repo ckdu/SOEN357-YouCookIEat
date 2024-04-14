@@ -67,7 +67,7 @@ function Auth() {
       <animated.div style={popup}>
         <Paper elevation={12} sx={{
           position: 'relative',
-          width: 400,
+          width: 350,
           height: 500,
           margin: 'auto',
           borderRadius: 2,
@@ -86,7 +86,7 @@ function Auth() {
           justifyContent: 'center', 
           padding: '0 32px'
         }}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom color="primary">
             Login
           </Typography>
           {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
@@ -113,7 +113,7 @@ function Auth() {
           justifyContent: 'center', 
           padding: '0 32px'
         }}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom color="primary">
             Sign Up
           </Typography>
           {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}

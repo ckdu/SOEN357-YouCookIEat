@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box, Grid, Paper, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Typography, Box, Grid, Paper, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, useTheme } from '@mui/material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 import { useSpring, animated } from 'react-spring';
 
@@ -39,6 +39,7 @@ const users = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#85144b'];
 
 function AdminDashboard() {
+  const theme = useTheme();
   const fadeInUp = useSpring({
     from: { opacity: 0, transform: 'translate3d(0, 50px, 0)' },
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
@@ -46,9 +47,9 @@ function AdminDashboard() {
   });
 
   return (
-    <Box sx={{ flexGrow: 1, my: 4 }}>
+    <Box sx={{ flexGrow: 1, my: 4}} >
       <animated.div style={fadeInUp}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom color="primary">
           Admin Dashboard
         </Typography>
       </animated.div>
