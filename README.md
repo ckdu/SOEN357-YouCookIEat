@@ -11,16 +11,16 @@
 
 ---
 
-## The Team
+### Team Members and Roles
 
-| Name                | Student ID |
-|---------------------|------------|
-| Eric Tan            | 40208502   |
-| Kevin Yang          | 40214231   |
-| Binal Patel         | 40212973   |
-| Tiffany Tran        | 40210679   |
-| Chris El-Kehdy      | 40208593   |
-| Louis-Charles Marquis | 40177137 |
+| Name | Student ID | Role |
+| ------------- | ------------- | -----------|
+| Eric Tan  | 40208502 | Project Lead |
+| Kevin Yang | 40214231 | DUI/UX Designer |
+| Chris El-Kehdy | 40208593 | Data Analyst |
+| Binal Patel | 40212973 | Backend Developer |
+| Tiffany Tran | 40210679 | Frontend Developer |
+| Louis-Charles Marquis | 40177137 | Quality Assurance |
 
 ---
 
