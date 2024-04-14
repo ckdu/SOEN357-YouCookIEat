@@ -1,12 +1,16 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Typography, Box, Grid, Paper, Card, CardMedia, CardContent, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { Typography, Box, Grid, Paper, Card, CardMedia, CardContent, CardActions, Button, List, ListItem, ListItemText, Divider, useTheme } from '@mui/material';
 import { businesses } from '../data/businessData';
 import { useSpring, animated } from 'react-spring';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import StarRateIcon from '@mui/icons-material/StarRate';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 function BusinessProfile() {
   const { id } = useParams();
-  const businessInfo = businesses[id]; // Get business data based on URL parameter
+  const businessInfo = businesses[id];
+  const theme = useTheme();
 
   // Animation for content on load
   const fadeInUp = useSpring({
@@ -17,17 +21,17 @@ function BusinessProfile() {
   });
 
   return (
-    <Box sx={{ flexGrow: 1, my: 4 }}>
+    <Box sx={{ flexGrow: 1, my: 4, color: theme.palette.text.primary }}>
       <animated.div style={fadeInUp}>
-        <Typography variant="h4" component="h1" gutterBottom>{businessInfo.name}</Typography>
-        <Typography variant="h6" gutterBottom>Description</Typography>
+        <Typography variant="h3" component="h1" gutterBottom color="primary">{businessInfo.name}</Typography>
+        <Typography variant="h5" gutterBottom>Description</Typography>
         <Typography variant="body1">{businessInfo.description}</Typography>
-        <Typography variant="h6" gutterBottom>Contact</Typography>
+        <Typography variant="h5" gutterBottom>Contact</Typography>
         <Typography variant="body1">{businessInfo.address}</Typography>
         <Typography variant="body1">{businessInfo.phone}</Typography>
       </animated.div>
 
-      <Typography variant="h6" gutterBottom>Gallery</Typography>
+      <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>Gallery</Typography>
       <Grid container spacing={2}>
         {businessInfo.gallery.map((img, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
@@ -35,36 +39,43 @@ function BusinessProfile() {
               <Card>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="200"
                   image={img}
                   alt={`Gallery Image ${index + 1}`}
                 />
+                <CardActions>
+                  <Button size="small" color="primary" startIcon={<StarRateIcon />}>
+                    Feature
+                  </Button>
+                </CardActions>
               </Card>
             </animated.div>
           </Grid>
         ))}
       </Grid>
 
-      <Typography variant="h6" gutterBottom>Menu Highlights</Typography>
+      <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>Menu Highlights</Typography>
       <animated.div style={fadeInUp}>
-        <List>
+        <List sx={{ bgcolor: theme.palette.background.paper }}>
           {businessInfo.menu.map((item, index) => (
             <ListItem key={index}>
+              <RestaurantMenuIcon color="secondary" sx={{ mr: 2 }} />
               <ListItemText primary={item.item} secondary={`Price: ${item.price}`} />
             </ListItem>
           ))}
         </List>
       </animated.div>
 
-      <Typography variant="h6" gutterBottom>Customer Reviews</Typography>
+      <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>Customer Reviews</Typography>
       <animated.div style={fadeInUp}>
-        <List>
+        <List sx={{ bgcolor: theme.palette.background.paper }}>
           {businessInfo.reviews.map((review, index) => (
             <React.Fragment key={index}>
               <ListItem alignItems="flex-start">
+                <ChatBubbleOutlineIcon color="action" sx={{ mr: 2 }} />
                 <ListItemText
                   primary={`${review.author} says:`}
-                  secondary={<Typography variant="body2" color="textPrimary">{review.content}</Typography>}
+                  secondary={<><StarRateIcon sx={{ color: theme.palette.warning.main, mr: 1 }}/>{review.content}</>}
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
