@@ -18,15 +18,6 @@ function Header() {
     setDrawerOpen(false);
   };
 
-  const MenuButtons = (
-    <>
-      <Button color="inherit" component={Link} to="/" sx={{ ml: 2 }}>Home</Button>
-      <Button color="inherit" component={Link} to="/about">About</Button>
-      <Button color="inherit" component={Link} to="/admin">Admin Dashboard</Button>
-      <Button color="inherit" component={Link} to="/auth">Login/Register</Button>
-    </>
-  );
-
   const menuItems = [
     { text: 'Home', path: '/' },
     { text: 'About', path: '/about' },
@@ -35,7 +26,7 @@ function Header() {
   ];
 
   return (
-    <AppBar position="static" color="primary">
+    <AppBar position="static" sx={{ background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)' }}>
       <Toolbar>
         <Box
           sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', cursor: 'pointer' }}
@@ -63,7 +54,13 @@ function Header() {
           </>
         ) : (
           menuItems.map((item) => (
-            <Button color="inherit" key={item.text} component={Link} to={item.path} sx={{ ml: 2 }}>
+            <Button 
+              color="inherit" 
+              key={item.text} 
+              component={Link} 
+              to={item.path} 
+              sx={{ ml: 2, '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.2)' } }}
+            >
               {item.text}
             </Button>
           ))
