@@ -13,10 +13,18 @@ function Auth() {
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
 
+  // Spring config for flipping animation
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 }
+  });
+
+  // Pop-up animation for the form
+  const popup = useSpring({
+    from: { opacity: 0, transform: 'translate3d(0, -20px, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    delay: 300
   });
 
   const handleFlip = () => {
@@ -41,7 +49,6 @@ function Auth() {
         setError('Email or password incorrect.');
         setAttempt(attempt + 1);
       } else {
-        // Redirect based on the account type switch
         const redirectUrl = isBusiness ? '/business' : '/profile';
         window.location.href = redirectUrl;
       }
@@ -49,7 +56,6 @@ function Auth() {
       if (form.password !== form.confirmPassword) {
         setError('Passwords do not match.');
       } else {
-        // Redirect based on the account type switch
         const redirectUrl = isBusiness ? '/business' : '/profile';
         window.location.href = redirectUrl;
       }
@@ -58,15 +64,16 @@ function Auth() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 8 }}>
-      <Paper elevation={12} sx={{
-        position: 'relative', 
-        width: 400, 
-        height: 500, 
-        margin: 'auto', 
-        borderRadius: 2,
-        border: isBusiness ? '2px solid gold' : 'none',
-        bgcolor: isBusiness ? 'rgba(0, 0, 0, 0.05)' : '#fff'
-      }}>
+      <animated.div style={popup}>
+        <Paper elevation={12} sx={{
+          position: 'relative',
+          width: 400,
+          height: 500,
+          margin: 'auto',
+          borderRadius: 2,
+          border: isBusiness ? '2px solid gold' : 'none',
+          bgcolor: isBusiness ? 'rgba(0, 0, 0, 0.05)' : '#fff'
+        }}>
         <animated.div style={{
           opacity: opacity.to(o => 1 - o), 
           transform, 
@@ -122,7 +129,8 @@ function Auth() {
           </Button>
           <Button fullWidth onClick={handleFlip}>Already have an account? Login</Button>
         </animated.div>
-      </Paper>
+        </Paper>
+      </animated.div>
     </Box>
   );
 }
