@@ -16,9 +16,9 @@ function CustomerProfile() {
       { date: "2023-02-14", item: "Custom Cake", status: "Delivered" }
     ],
     favoriteImages: [
-      "/logo.png",
-      "/logo.png",
-      "/logo.png"
+      "/artisan_bread.jpg",
+      "/chocolate_croissant.jpg",
+      "/custom_cake.jpg"
     ]
   };
 

@@ -49,14 +49,14 @@ function Auth() {
         setError('Email or password incorrect.');
         setAttempt(attempt + 1);
       } else {
-        const redirectUrl = isBusiness ? '/business' : '/profile';
+        const redirectUrl = isBusiness ? '/business/1' : '/profile';
         window.location.href = redirectUrl;
       }
     } else if (type === 'signup') {
       if (form.password !== form.confirmPassword) {
         setError('Passwords do not match.');
       } else {
-        const redirectUrl = isBusiness ? '/business' : '/profile';
+        const redirectUrl = isBusiness ? '/business/1' : '/profile';
         window.location.href = redirectUrl;
       }
     }
