@@ -1,13 +1,17 @@
 import React from 'react';
 import { Typography, Box, Grid, Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import { businesses } from '../data/businessData';
 
 function Home() {
-  const featuredBusinesses = [
-    { id: 1, name: "Local Bakery", description: "Freshly baked goods daily.", imageUrl: "/logo.png" },
-    { id: 2, name: "Farm to Table Restaurant", description: "Organic meals prepared with local ingredients.", imageUrl: "/logo.png" },
-    { id: 3, name: "Homemade Pies", description: "Sweet and savory pies like your grandmother used to make.", imageUrl: "/logo.png" },
-  ];
+  const featuredBusinesses = Object.values(businesses);
+
+  const navigate = useNavigate();
+
+  const handleLearnMore = (id) => {
+    navigate(`/business/${id}`);
+  };
 
   return (
     <Box>
@@ -28,7 +32,7 @@ function Home() {
               <CardMedia
                 component="img"
                 height="140"
-                image={business.imageUrl}
+                image={business.gallery[0]}
                 alt={business.name}
               />
               <CardContent>
@@ -40,7 +44,7 @@ function Home() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small">Learn More</Button>
+                <Button size="small" onClick={() => handleLearnMore(business.id)}>Learn More</Button>
               </CardActions>
             </Card>
           </Grid>

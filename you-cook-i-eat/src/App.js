@@ -20,7 +20,7 @@ function App() {
       <Container maxWidth="lg">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/business" element={<BusinessProfile />} />
+          <Route path="/business/:id" element={<BusinessProfile />} />
           <Route path="/profile" element={<CustomerProfile />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/about" element={<About />} />

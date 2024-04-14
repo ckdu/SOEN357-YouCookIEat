@@ -1,27 +1,12 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Typography, Box, Grid, Paper, Card, CardMedia, CardContent, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { businesses } from '../data/businessData';
 
 function BusinessProfile() {
-  const businessInfo = {
-    name: "Local Bakery",
-    description: "Specializing in fresh bread, pastries, and bespoke cakes made daily from locally sourced ingredients.",
-    address: "123 Bakery Lane, Foodville",
-    phone: "555-1234",
-    gallery: [
-      "/logo.png",
-      "/logo.png",
-      "/logo.png"
-    ],
-    menu: [
-      { item: "Artisan Bread", price: "$5" },
-      { item: "Chocolate Croissant", price: "$3" },
-      { item: "Custom Cake", price: "$25" }
-    ],
-    reviews: [
-      { author: "Jane Doe", content: "Absolutely love the bread here, always fresh!", rating: 5 },
-      { author: "John Smith", content: "Great pastries, and friendly staff.", rating: 4 }
-    ]
-  };
+  const { id } = useParams();
+  const businessInfo = businesses[id]; // Get business data based on URL parameter
+
 
   return (
     <Box sx={{ flexGrow: 1, my: 4 }}>
