@@ -1,24 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Typography, Box, Grid, Paper, Card, CardMedia, CardContent, CardActions, Button, List, ListItem, ListItemText, Divider, useTheme } from '@mui/material';
+import { Typography, Box, Grid, Card, CardMedia, CardContent, CardActions, Button, List, ListItem, ListItemText, Divider, useTheme, Modal } from '@mui/material';
 import { businesses } from '../data/businessData';
 import { useSpring, animated } from 'react-spring';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import StarRateIcon from '@mui/icons-material/StarRate';
+import ImageIcon from '@mui/icons-material/Image';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import CloseIcon from '@mui/icons-material/Close';
 
 function BusinessProfile() {
   const { id } = useParams();
   const businessInfo = businesses[id];
   const theme = useTheme();
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
 
-  // Animation for content on load
   const fadeInUp = useSpring({
     from: { opacity: 0, transform: 'translate3d(0, 50px, 0)' },
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
     config: { tension: 220, friction: 20 },
     delay: 100
   });
+
+  const modalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 'auto',
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+    outline: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
+
+  const openModal = (imgSrc) => {
+    setSelectedImage(imgSrc);
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
 
   return (
     <Box sx={{ flexGrow: 1, my: 4, color: theme.palette.text.primary }}>
@@ -44,8 +70,8 @@ function BusinessProfile() {
                   alt={`Gallery Image ${index + 1}`}
                 />
                 <CardActions>
-                  <Button size="small" color="primary" startIcon={<StarRateIcon />}>
-                    Feature
+                  <Button size="small" color="primary" startIcon={<ImageIcon />} onClick={() => openModal(img)}>
+                    View
                   </Button>
                 </CardActions>
               </Card>
@@ -53,6 +79,23 @@ function BusinessProfile() {
           </Grid>
         ))}
       </Grid>
+
+      <Modal
+        open={open}
+        onClose={closeModal}
+        aria-labelledby="image-modal-title"
+        aria-describedby="image-modal-description"
+      >
+        <Box sx={modalStyle}>
+          <Typography id="image-modal-title" variant="h6" component="h2" gutterBottom>
+            Image View
+          </Typography>
+          <img src={selectedImage} alt="Enlarged View" style={{ maxWidth: '100%', maxHeight: '80vh' }} />
+          <Button startIcon={<CloseIcon />} onClick={closeModal} sx={{ mt: 2 }}>
+            Close
+          </Button>
+        </Box>
+      </Modal>
 
       <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>Menu Highlights</Typography>
       <animated.div style={fadeInUp}>
@@ -75,7 +118,7 @@ function BusinessProfile() {
                 <ChatBubbleOutlineIcon color="action" sx={{ mr: 2 }} />
                 <ListItemText
                   primary={`${review.author} says:`}
-                  secondary={<><StarRateIcon sx={{ color: theme.palette.warning.main, mr: 1 }}/>{review.content}</>}
+                  secondary={<Typography variant="body2" color="textPrimary">{review.content}</Typography>}
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
