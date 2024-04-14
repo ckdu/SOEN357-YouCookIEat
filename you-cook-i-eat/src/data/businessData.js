@@ -1,5 +1,6 @@
 export const businesses = {
     1: {
+      id: 1,
       name: "Local Bakery",
       description: "Specializing in fresh bread, pastries, and bespoke cakes made daily from locally sourced ingredients.",
       address: "123 Bakery Lane, Foodville",
@@ -20,6 +21,7 @@ export const businesses = {
       ]
     },
     2: {
+      id: 2,
       name: "Farm to Table Restaurant",
       description: "Organic meals prepared with local ingredients.",
       address: "456 Farmer Road, Green Valley",
@@ -40,6 +42,7 @@ export const businesses = {
       ]
     },
     3: {
+      id: 3,
       name: "Homemade Pies",
       description: "Sweet and savory pies like your grandmother used to make.",
       address: "789 Pie Street, Tasteville",
@@ -60,6 +63,7 @@ export const businesses = {
       ]
     },
     4: {
+      id: 4,
       name: "Green Leaf Vegan Cafe",
       description: "Offering a creative and delicious range of entirely plant-based meals prepared with organic and locally sourced ingredients.",
       address: "202 Plant St, Vegantown",
@@ -80,6 +84,7 @@ export const businesses = {
       ]
     },
     5: {
+      id: 5,
       name: "Blue Ocean Seafood Shack",
       description: "Fresh seafood straight from the dock to your plate. Enjoy the best fish, oysters, and more in a casual setting.",
       address: "88 Ocean View Rd, Seaside",
@@ -100,6 +105,7 @@ export const businesses = {
       ]
     },
     6: {
+      id: 6,
       name: "Roma Italian Trattoria",
       description: "Authentic Italian cuisine featuring handmade pastas, wood-fired pizzas, and a selection of Italian wines.",
       address: "334 Little Italy St, Downtown",
@@ -120,6 +126,7 @@ export const businesses = {
       ]
     },
     7: {
+      id: 7,
       name: "The Cheesemonger's Shop",
       description: "Specialty cheese shop offering a wide variety of local and imported cheeses, along with tastings and pairings.",
       address: "450 Cheese Lover Ln, Dairydale",
@@ -140,6 +147,7 @@ export const businesses = {
       ]
     },
     8: {
+      id: 8,
       name: "Hop Haven Craft Brewery",
       description: "Local microbrewery offering a selection of craft beers brewed on-site, from refreshing lagers to rich stouts.",
       address: "672 Brewmaster Lane, Brewtown",
@@ -160,6 +168,7 @@ export const businesses = {
       ]
     },
     9: {
+      id: 9,
       name: "Grill Master Gourmet Burger Bar",
       description: "Gourmet burgers with innovative toppings and sauces, all made from high-quality, locally sourced ingredients.",
       address: "858 Burger Blvd, Flavor Town",

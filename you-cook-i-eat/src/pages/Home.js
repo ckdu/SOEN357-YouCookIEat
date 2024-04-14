@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <Box>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ mt: 4, mb: 2 }}>
         Welcome to You Cook I Eat
       </Typography>
       <Typography variant="body1" gutterBottom>
