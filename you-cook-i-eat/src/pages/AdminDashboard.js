@@ -39,7 +39,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#85144b'];
 
 function AdminDashboard() {
   return (
-    <Box sx={{ flexGrow: 1, p: 3, backgroundColor: '#f5f5f5' }}>
+    <Box sx={{ flexGrow: 1, my: 4 }}>
       <Typography variant="h4" gutterBottom>
         Admin Dashboard
       </Typography>
