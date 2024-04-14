@@ -49,7 +49,7 @@ function About() {
             <animated.div style={teamAnimation}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="h6">{name}</Typography>
-                <Typography variant="body2">Student ID: {`40208502 + ${index}`}</Typography>
+                <Typography variant="body2">Student ID: {`40208502`}</Typography>
                 <Typography variant="body2">Role: {["Project Lead", "UI/UX Designer", "Backend Developer", "Frontend Developer", "Data Analyst", "Quality Assurance"][index]}</Typography>
               </Paper>
             </animated.div>
