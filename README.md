@@ -24,6 +24,8 @@ To run the **You Cook I Eat** web application, follow these simple steps:
    ```
 The application should now be running locally on your browser at `http://localhost:3000`.
 
+*Note: The application is already accessible and hosted online at [youcookieat.pages.dev](https://youcookieat.pages.dev).*
+
 ---
 
 ## Introduction
