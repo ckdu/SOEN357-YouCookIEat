@@ -5,6 +5,27 @@
 
 ---
 
+## Detailed Instructions on How to Run the Code
+
+To run the **You Cook I Eat** web application, follow these simple steps:
+1. Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+2. Open a terminal.
+3. Change directory to the project folder:
+   ```
+   cd you-cook-i-eat
+   ```
+4. Install the necessary dependencies:
+   ```
+   npm install
+   ```
+5. Start the application:
+   ```
+   npm start
+   ```
+The application should now be running locally on your browser at `http://localhost:3000`.
+
+---
+
 ## Introduction
 
 **You Cook I Eat** is an innovative web application designed as part of the coursework for SOEN 357 - User Interface Design at Concordia University. Our aim is to create a user-friendly and engaging platform that supports and promotes local food businesses, allowing them to connect with customers and offer a unique and personal food purchasing experience.
